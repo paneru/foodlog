@@ -1,6 +1,6 @@
 
 <% content_for :title do %>
-  Foodlog - <%= DateTime.now %>
+  Foodlog - <%= DateTime.now.to_fs(:nice_date) %>
 <% end %>
 
 <div id="entries" class="columns mt-6 is-centered">
@@ -21,7 +21,7 @@
         <div class="card-footer">
           <%= link_to "Show", entry, class: "card-footer-item" %>
           <%= link_to "Edit", edit_entry_path(entry), class: "card-footer-item" %>
-          <%= link_to "Destroy", entry, method: :delete, data: { confirm: "Are you sure?"}, class: "card-footer-item" %>
+          <%= link_to "Destroy", entry_path(entry), method: :delete, form: { data: { turbo_confirm: "Are you sure?"} }, class: "card-footer-item is-danger" %>
         </div>
       </div>
     </div>
