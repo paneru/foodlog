@@ -1,0 +1,40 @@
+<section class="hero is-info is-small">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo">
+          </a>
+          <span class="navbar-burger" data-target="navbarMenuHeroB">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroB" class="navbar-menu">
+          <div class="navbar-end">
+            <span class="navbar-item">
+                <%= link_to "Add Entry", new_entry_path, class: "button is-success" %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        <% if content_for(:title) %>
+            <%= yield :title %>
+        <% else %>
+            Foodlog
+        <% end %>
+      </p>
+      <p class="subtitle">
+        Easy way to watch you calaries...
+      </p>
+    </div>
+  </div>
+</section>
