@@ -1,8 +1,27 @@
-<%= render @entry %>
-
-<div>
-  <%= link_to "Edit this entry", edit_entry_path(@entry) %> |
-  <%= link_to "Back to entries", entries_path %>
-
-  <%= button_to "Destroy this entry", @entry, method: :delete %>
+<% content_for :title do %>
+  <%= @entry.meal_type %> &ndash; <%= DateTime.now.to_fs(:nice_date) %>
+<% end %>
+<div id="entries" class="columns mt-6 is-centered">
+    <div class="column is-one-quarter">
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <%= render @entry %>
+            <p class="italic">
+              Logged: <%= time_ago_in_words(@entry.created_at) %> ago
+            </p>
+            
+          </div>
+        </div>
+        <div class="card-footer">
+          <%= link_to "Edit", edit_entry_path(@entry), class: "card-footer-item" %>
+          <%= link_to "Delete", @entry, data:{turbo_method: :delete, turbo_confirm: "Are syou sure?"}, class: "card-footer-item has-text-danger-dark" %>
+          <%# <%= link_to "Back", entries_path, class: "card-footer-item" %>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="buttons is-centered">
+    <%= link_to "Back to entries", entries_path, class: "button is-primary is-light" %>
+    <%= button_to "Delete this entry", @entry, data:{turbo_method: :delete, turbo_confirm: "Are syou sure?"}, class: "button is-danger is-light" %>
 </div>
