@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails 7 App for logging food eaten daily. The app summarizes the daily intake of Carb, Proteins, Calories and Fats.
 
-Things you may want to cover:
+* Ruby version: 3.2.1
 
-* Ruby version
+* Rails version: 7.0.4.2
 
-* System dependencies
+* CSS Framework: Bulma 0.9.4
 
-* Configuration
+* System dependencies: SQLITE 3
 
-* Database creation
+* Database initialization: $ rails db:migrate
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* How to run the test suite: $ rail test
