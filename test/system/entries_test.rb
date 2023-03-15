@@ -2,17 +2,17 @@ require "application_system_test_case"
 
 class EntriesTest < ApplicationSystemTestCase
   setup do
-    @entry = entries(:one)
+    @entry = entries(:breakfast)
   end
 
   test "visiting the index" do
     visit entries_url
-    assert_selector "h1", text: "Entries"
+    assert_selector "p", text: "Foodlog - #{DateTime.now.to_fs(:nice_date)}"
   end
 
   test "should create entry" do
     visit entries_url
-    click_on "New entry"
+    click_on "Add Entry"
 
     fill_in "Calories", with: @entry.calories
     fill_in "Carb", with: @entry.carb
@@ -27,7 +27,7 @@ class EntriesTest < ApplicationSystemTestCase
 
   test "should update Entry" do
     visit entry_url(@entry)
-    click_on "Edit this entry", match: :first
+    click_on "Edit", match: :first
 
     fill_in "Calories", with: @entry.calories
     fill_in "Carb", with: @entry.carb
